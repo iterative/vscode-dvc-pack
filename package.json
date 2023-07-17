@@ -1,5 +1,6 @@
 {
   "name": "vscode-dvc-pack",
+  "icon": "dvc.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/iterative/vscode-dvc-pack"
