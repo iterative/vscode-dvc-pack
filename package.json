@@ -1,0 +1,44 @@
+{
+  "name": "vscode-dvc-pack",
+  "icon": "dvc.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iterative/vscode-dvc-pack"
+  },
+  "bugs": "https://github.com/iterative/vscode-dvc-pack",
+  "homepage": "https://github.com/iterative/vscode-dvc-pack#readme",
+  "displayName": "DVC extension pack",
+  "description": "The most useful extensions for getting started with DVC.",
+  "version": "0.0.1",
+  "publisher": "iterative",
+  "license": "Apache-2.0",
+  "readme": "./README.md",
+  "engines": {
+    "vscode": "^1.64.0"
+  },
+  "categories": [
+    "Extension Packs"  
+  ],
+  "keywords": [
+    "iterative",
+    "data version control",
+    "plots",
+    "experiment tracking",
+    "hyperparameters",
+    "dataset",
+    "dvc"
+  ],
+  "extensionPack": [ 
+    "Iterative.dvc",
+    "ms-python.python",
+    "redhat.vscode-yaml",
+    "eamodio.gitlens",
+    "bierner.markdown-mermaid"
+  ],
+  "scripts": {
+    "build": "yarn run vsce package --yarn -o ./vscode-dvc-pack.vsix"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "2.19.0"
+  }
+}

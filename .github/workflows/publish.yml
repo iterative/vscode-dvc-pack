@@ -1,0 +1,37 @@
+name: Publish Extension
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+          
+      - run: yarn install
+      - run: yarn build
+
+      - name: Upload VSIX
+        uses: actions/upload-artifact@v3
+        with:
+          name: dvc.vsix
+          path: ./vscode-dvc-pack.vsix
+
+      - name: Publish to Visual Studio Marketplace
+        uses: HaaLeo/publish-vscode-extension@v1
+        with:
+          extensionFile: ./vscode-dvc-pack.vsix
+          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
