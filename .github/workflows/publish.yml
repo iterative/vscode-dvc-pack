@@ -30,7 +30,7 @@ jobs:
           path: ./vscode-dvc-pack.vsix
 
       - name: Publish to Visual Studio Marketplace
-        uses: HaaLeo/publish-vscode-extension@v1
+        uses: HaaLeo/publish-vscode-extension@v2
         with:
           extensionFile: ./vscode-dvc-pack.vsix
           pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
